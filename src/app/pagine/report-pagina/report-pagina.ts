@@ -11,12 +11,6 @@ import { CommonModule } from '@angular/common';
 import { ReportTransactionsPerMerchantId } from '../../components/report-transactions-per-merchant-id/report-transactions-per-merchantId';
 
 
-
-
-
-
-
-
 @Component({
   selector: 'app-mini-etl-report-pagina',
   imports: [MatExpansionModule, MatProgressSpinnerModule, MatIconModule, MatButtonModule, MatListModule, CommonModule, ReportTransactionsPerMerchantId],
@@ -51,7 +45,6 @@ export class ReportPagina {
   }
 
   regroupTransactionsByMerchantId() {
-
     const groupedTransactions = this.listaTransazione.reduce(
       (acc: any, transaction: any) => {
         const { merchantId, eventTime } = transaction;
