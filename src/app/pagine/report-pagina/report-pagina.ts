@@ -55,17 +55,13 @@ export class ReportPagina {
     const groupedTransactions = this.listaTransazione.reduce(
       (acc: any, transaction: any) => {
         const { merchantId, eventTime } = transaction;
-
         if (!acc[merchantId]) {
           acc[merchantId] = {};
         }
-
         if (!acc[merchantId][eventTime]) {
           acc[merchantId][eventTime] = [];
         }
-
         acc[merchantId][eventTime].push(transaction);
-
         return acc;
       },
       {} as Record<string, Record<string, listaTransazioneI[]>>

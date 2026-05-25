@@ -17,7 +17,7 @@
       
         @for (tx of timeGroup.transactions; track tx.extId) {
         <mat-list>
-           <li> CURR: <b>{{tx.currency}}</b> --- AMOUNT: <b>--- {{tx.amountMinor}}</b> --- CUSTOMER NAME: <b>{{tx.customerName | uppercase}}</b></li>
+           <li> CURRENCY: <b>{{tx.currency}}</b> --- AMOUNT: <b>--- {{tx.amountMinor}}</b> --- CUSTOMER NAME: <b>{{tx.customerName | uppercase}}</b></li>
         </mat-list>   
         }  </ul>
 
