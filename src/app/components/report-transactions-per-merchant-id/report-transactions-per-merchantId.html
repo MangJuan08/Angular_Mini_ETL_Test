@@ -10,7 +10,7 @@
         <hr>
         <h3> <b>{{ transformDate(timeGroup.eventTime) }}</b></h3>
         <p> TRANSACTION DATE: <b>{{timeGroup.eventTime }}</b></p>
-        <p> TRANSATION TOTAL: <b>{{ timeGroup.totalAmount }}</b></p>
+        <p> TRANSACTION TOTAL: <b>{{ timeGroup.totalAmount }}</b></p>
         <p> SUM OF TRANSACTIONS PER EVENT TIME: <b>{{ timeGroup.totalQuantityTransactions }}</b></p>
         @for (tx of timeGroup.transactions; track tx.extId) {
         <mat-list>
