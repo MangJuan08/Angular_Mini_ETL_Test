@@ -9,7 +9,7 @@
         @for (timeGroup of merchantGroup.eventTimes; track timeGroup.eventTime) {
         <hr>
         <h3> <b>{{ transformDate(timeGroup.eventTime) }}</b></h3>
-        <p> TRANSACTION DATE: <b>{{timeGroup.eventTime }}</b></p>
+        <p> TRANSACTION DATE: <b>{{transformDate(timeGroup.eventTime) }}</b></p>
         <p> TRANSACTION TOTAL: <b>{{ timeGroup.totalAmount }}</b></p>
         <p> SUM OF TRANSACTIONS PER DATE: <b>{{ timeGroup.totalQuantityTransactions }}</b></p>
         <ul>
