@@ -1,0 +1,148 @@
+{
+  "transactions": [
+    {
+      "extId": 1001,
+      "customerId": 501,
+      "amountMinor": 2599,
+      "currency": "EUR",
+      "stato": "COMPLETED",
+      "eventTime": "2026-05-21T10:15:30Z",
+      "customerName": "SSS",
+      "merchantId": "XXX",
+      "id": "iOZCG4vgxEc"
+    },
+    {
+      "extId": 1002,
+      "customerId": 501,
+      "amountMinor": 2599,
+      "currency": "EUR",
+      "stato": "COMPLETED",
+      "eventTime": "2026-05-21T10:15:30Z",
+      "customerName": "BAUT",
+      "merchantId": "XXX",
+      "id": "iOZCG4vgxEc"
+    },
+    {
+      "extId": 1003,
+      "customerId": 501,
+      "amountMinor": 2599,
+      "currency": "EUR",
+      "stato": "COMPLETED",
+      "eventTime": "2026-03-21T10:15:30Z",
+      "customerName": "John",
+      "merchantId": "XXX",
+      "id": "iOZCG4vgxEc"
+    },
+    {
+      "extId": 1002,
+      "customerId": 502,
+      "amountMinor": 4999,
+      "currency": "EUR",
+      "stato": "PENDING",
+      "eventTime": "2022-09-21T11:20:45Z",
+      "customerName": "F",
+      "merchantId": "XXX",
+      "id": "npRdmTCOqb8"
+    },
+    {
+      "extId": 644,
+      "customerId": "123",
+      "amountMinor": "12",
+      "currency": "AAA",
+      "stato": "COMPLETED",
+      "eventTime": "2026-05-08T16:20:55+02:00",
+      "customerName": "E",
+      "merchantId": "YYY",
+      "id": "q46OTLk6bXk"
+    },
+    {
+      "extId": 521,
+      "customerId": "123",
+      "amountMinor": "12",
+      "currency": "AAA",
+      "stato": "PENDING",
+      "eventTime": "2026-05-22T16:20:55+02:00",
+      "customerName": "B",
+      "merchantId": "YYY",
+      "id": "PWklLoyg0s8"
+    },
+    {
+      "extId": 890,
+      "customerId": "12",
+      "amountMinor": "3",
+      "currency": "EUR",
+      "stato": "COMPLETED",
+      "eventTime": "2026-05-23T16:27:18+02:00",
+      "customerName": "A",
+      "merchantId": "ZZZ",
+      "id": "NdvlVFYZ2-w"
+    },
+    {
+      "extId": 890,
+      "customerId": "12",
+      "amountMinor": "3",
+      "currency": "EUR",
+      "stato": "COMPLETED",
+      "eventTime": "2026-05-24T16:27:18+02:00",
+      "customerName": "C",
+      "merchantId": "ZZZ",
+      "id": "NdvlVFYZ2-w"
+    },
+    {
+      "extId": 123,
+      "customerId": "2342",
+      "amountMinor": "234",
+      "currency": "GBP",
+      "stato": "PENDING",
+      "eventTime": "2026-05-25T12:04:56+02:00",
+      "customerName": "D",
+      "merchantId": "BZE",
+      "id": "gJfIqQw9Wwg"
+    },
+    {
+      "extId": 32,
+      "customerId": "123",
+      "amountMinor": "132",
+      "currency": "EUR",
+      "stato": "PENDING",
+      "eventTime": "2026-05-22T12:25:29+02:00",
+      "customerName": "as",
+      "merchantId": "BZE",
+      "id": "aKnD8ExMLKM"
+    },
+    {
+      "extId": "61.37",
+      "customerId": "123",
+      "amountMinor": "43",
+      "currency": "USD",
+      "stato": "COMPLETED",
+      "eventTime": "2026-05-25T12:41:57+02:00",
+      "customerName": "ASD",
+      "merchantId": "12AS",
+      "id": "nfPkvtzSLmM"
+    },
+    {
+      "extId": "20.24",
+      "customerId": "12",
+      "amountMinor": "45.09",
+      "currency": "EUR",
+      "stato": "COMPLETED",
+      "eventTime": "2026-05-25T12:44:12+02:00",
+      "customerName": "as",
+      "merchantId": "1231aaw",
+      "id": "cxgLMMFgxvk"
+    },
+    {
+      "extId": 173,
+      "customerId": "123",
+      "amountMinor": "12.0",
+      "currency": "EUR",
+      "stato": "COMPLETED",
+      "eventTime": "2026-05-25T13:13:02+02:00",
+      "customerName": "asd",
+      "merchantId": "123",
+      "id": "iv2FBXOCSmM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,0 +1,24 @@
+@if(!showReport) {
+<div class="loading-overlay">
+    <mat-spinner diameter="60"></mat-spinner>
+</div>
+}
+@else {
+
+<div class="container report-container">
+    <div class="row">
+        <h1>REPORT <button matMiniFab (click)="refreshPage()">
+                <mat-icon>refresh</mat-icon>
+            </button>
+        </h1>
+        <br><br><br>    <br>    
+
+        @for (merchantGroup of groupedArray; track merchantGroup.merchantId) {
+
+ <app-mini-etl-report-transactions-per-merchant-id [merchantGroup] = "merchantGroup" [groupedArray]= "groupedArray"></app-mini-etl-report-transactions-per-merchant-id>
+        }
+    </div>
+</div>
+
+
+}

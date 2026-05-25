@@ -1,0 +1,133 @@
+@if(!showTable) {
+<div class="loading-overlay">
+    <mat-spinner diameter="60"></mat-spinner>
+</div>
+}
+@else {
+<mat-card appearance="outlined">
+    <mat-card-content>
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Filter </mat-panel-title>
+                </mat-expansion-panel-header>
+                <form [formGroup]="filterForm">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Customer Name</mat-label>
+                        <input matInput placeholder="Placeholder" formControlName="customerName">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>DATA DA:</mat-label>
+                        <input matInput [matDatepicker]="dataDa" formControlName="dataDa" />
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="dataDa"></mat-datepicker-toggle>
+                        <mat-datepicker #dataDa>
+                            <mat-datepicker-actions>
+                                <button matButton matDatepickerCancel>Cancel</button>
+                                <button matButton="elevated" matDatepickerApply>Apply</button>
+                            </mat-datepicker-actions>
+                        </mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>DATA A:</mat-label>
+                        <input matInput [matDatepicker]="dataA" formControlName="dataA" />
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="dataA"></mat-datepicker-toggle>
+                        <mat-datepicker #dataA>
+                            <mat-datepicker-actions>
+                                <button matButton matDatepickerCancel>Cancel</button>
+                                <button matButton="elevated" matDatepickerApply>Apply</button>
+                            </mat-datepicker-actions>
+                        </mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>STATO TRANSAZIONE</mat-label>
+                        <mat-select matInput formControlName="statoTransazione">
+                            @for (s of statusTransazione; track s) {
+                            <mat-option [value]="s.value">{{s.viewValue}}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                    <button mat-button (click)="filterF(filterForm)">APPLY FILTER</button>
+
+                </form>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <br><br>
+        <button id="btn-add" matMiniFab (click)="openDialog()">
+            <mat-icon>control_point</mat-icon>
+        </button>
+        <button matMiniFab (click)="refreshTable()">
+            <mat-icon>refresh</mat-icon>
+        </button>
+
+        <br><br>
+
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- extId Column -->
+            <ng-container matColumnDef="extId">
+                <mat-header-cell *matHeaderCellDef style="background-color:blue">{{ 'Ext. Id' | uppercase }}
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.extId}} </mat-cell>
+            </ng-container>
+
+            <!-- customerName Column -->
+            <ng-container matColumnDef="customerName">
+                <mat-header-cell *matHeaderCellDef style="background-color:blue">{{ 'Customer Name' | uppercase }}
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.customerName}} </mat-cell>
+            </ng-container>
+
+            <!-- customerId Column -->
+            <ng-container matColumnDef="customerId">
+                <mat-header-cell *matHeaderCellDef style="background-color:blue">{{ 'Customer Id' | uppercase }}
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.customerId}} </mat-cell>
+            </ng-container>
+
+            <!-- amountMinor Column -->
+            <ng-container matColumnDef="amountMinor">
+                <mat-header-cell *matHeaderCellDef style="background-color:blue">{{ 'Amount Minor' | uppercase }}
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.amountMinor}} </mat-cell>
+            </ng-container>
+
+            <!-- currency Column -->
+            <ng-container matColumnDef="currency">
+                <mat-header-cell *matHeaderCellDef style="background-color:blue">{{ 'Currency' | uppercase }}
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.currency}} </mat-cell>
+            </ng-container>
+
+
+            <!-- stato Column -->
+            <ng-container matColumnDef="stato">
+                <mat-header-cell *matHeaderCellDef style="background-color:blue"> {{ 'Status' | uppercase }}
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element"> <b>{{element.stato | uppercase}}</b> </mat-cell>
+            </ng-container>
+
+            <!-- eventTime Column -->
+            <ng-container matColumnDef="eventTime">
+                <mat-header-cell *matHeaderCellDef style="background-color:blue"> {{ 'Data Transazione' | uppercase }}
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{transformDate(element.eventTime)}} </mat-cell>
+            </ng-container>
+
+            <!-- merchantId Column -->
+            <ng-container matColumnDef="merchantId">
+                <mat-header-cell *matHeaderCellDef style="background-color:blue"> {{ 'Merchant Id' | uppercase
+                    }}</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.merchantId | uppercase}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns;  sticky: true"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns; "></mat-row>
+        </mat-table>
+    </mat-card-content>
+</mat-card>
+}

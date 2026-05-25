@@ -15,7 +15,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "app-mini-etl",
       "architect": {
         "build": {
           "builder": "@angular/build:application",

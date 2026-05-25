@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>ADD NEW TRANSACTION</h2>
+<mat-dialog-content>
+    <br><br>
+    <form [formGroup]="formNewTransaction">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>CUSTOMER ID</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="customerId">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>AMOUNT MINOR</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="amountMinor">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+             <mat-form-field appearance="outline">
+                <mat-label>CURRENCY</mat-label>
+                <mat-select matInput formControlName="currency">
+                    @for (c of currencyList; track c) {
+                    <mat-option [value]="c.value">{{c.value}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>CUSTOMER NAME</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="customerName">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>MERCHANT ID</mat-label>
+                <input matInput placeholder="Placeholder" formControlName="merchantId">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>STATO TRANSAZIONE</mat-label>
+                <mat-select matInput formControlName="statoTransazione">
+                    @for (s of statusTransazione; track s) {
+                    <mat-option [value]="s.value">{{s.viewValue}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+            <button type="button" id="submit-btn"matButton="filled" [disabled]="!formNewTransaction.valid" (click)="addTransaction(formNewTransaction)">ADD TRANSACTION</button>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button matButton="filled" mat-dialog-close>Close</button>
+</mat-dialog-actions>
