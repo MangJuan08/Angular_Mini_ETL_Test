@@ -3,6 +3,7 @@ import { Component, Input, signal } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import moment from 'moment';
+import { CurrencyI } from '../../model/currency';
 
 @Component({
   selector: 'app-mini-etl-report-transactions-per-merchant-id',
@@ -11,16 +12,19 @@ import moment from 'moment';
   styleUrl: './report-transactions-per-merchantId.scss',
 })
 export class ReportTransactionsPerMerchantId {
-    @Input() merchantGroup: any;
-    @Input() groupedArray: any
+  @Input() merchantGroup: any;
+  @Input() groupedArray: any
+ 
 
-    readonly panelOpenState = signal(false);
-    constructor() {
-    }
-    ngOnInit() {
-    }
+  readonly panelOpenState = signal(false);
+  constructor() {
+     
+  }
+  ngOnInit() {
+  }
 
-     transformDate(valueDate: any) {
+  transformDate(valueDate: any) {
     return moment(valueDate).format('L')
   }
+
 }

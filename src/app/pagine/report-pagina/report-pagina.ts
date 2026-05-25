@@ -35,6 +35,7 @@ export class ReportPagina {
   showReport: Boolean;
   groupedTransactions: any;
   timer: any;
+
   constructor() {
     this.showReport = false;
     this.listaTransazioneService.getList().subscribe((data: any) => {
@@ -81,7 +82,7 @@ export class ReportPagina {
               (sum: any, tx: any) => sum + tx.amountMinor,
               0
             ),
-            totalQuantityTransactions: transactions.length
+            totalQuantityTransactions: transactions.length,
           })
         ),
       })

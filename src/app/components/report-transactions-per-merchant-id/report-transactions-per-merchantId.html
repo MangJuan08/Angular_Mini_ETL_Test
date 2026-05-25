@@ -11,12 +11,15 @@
         <h3> <b>{{ transformDate(timeGroup.eventTime) }}</b></h3>
         <p> TRANSACTION DATE: <b>{{timeGroup.eventTime }}</b></p>
         <p> TRANSACTION TOTAL: <b>{{ timeGroup.totalAmount }}</b></p>
-        <p> SUM OF TRANSACTIONS PER EVENT TIME: <b>{{ timeGroup.totalQuantityTransactions }}</b></p>
+        <p> SUM OF TRANSACTIONS PER DATE: <b>{{ timeGroup.totalQuantityTransactions }}</b></p>
+        <ul>
+
+      
         @for (tx of timeGroup.transactions; track tx.extId) {
         <mat-list>
-            CURR: <b>{{tx.currency}}</b> --- AMOUNT: <b>{{tx.amountMinor}}</b> --- CUSTOMER NAME: <b>{{tx.customerName | uppercase}}</b>
+           <li> CURR: <b>{{tx.currency}}</b> --- AMOUNT: <b>--- {{tx.amountMinor}}</b> --- CUSTOMER NAME: <b>{{tx.customerName | uppercase}}</b></li>
         </mat-list>   
-        }
+        }  </ul>
 
         }
     </mat-expansion-panel>
