@@ -2,26 +2,8 @@
     <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
         <mat-expansion-panel-header>
             <mat-panel-title> MERCHANT ID:{{ merchantGroup.merchantId }}</mat-panel-title>
-            <mat-panel-description>
-
-            </mat-panel-description>
         </mat-expansion-panel-header>
-        @for (timeGroup of merchantGroup.eventTimes; track timeGroup.eventTime) {
-        <hr>
-        <h3> <b>{{ transformDate(timeGroup.eventTime) }}</b></h3>
-        <p> TRANSACTION DATE: <b>{{transformDate(timeGroup.eventTime) }}</b></p>
-        <p> TRANSACTION TOTAL: <b>{{ timeGroup.totalAmount }}</b></p>
-        <p> SUM OF TRANSACTIONS PER DATE: <b>{{ timeGroup.totalQuantityTransactions }}</b></p>
-        <ul>
-
-      
-        @for (tx of timeGroup.transactions; track tx.extId) {
-        <mat-list>
-           <li> CURRENCY: <b>{{tx.currency}}</b> --- AMOUNT: <b>--- {{tx.amountMinor}}</b> --- CUSTOMER NAME: <b>{{tx.customerName | uppercase}}</b></li>
-        </mat-list>   
-        }  </ul>
-
-        }
+        <app-mini-etl-lista-transazioni-per-data [merchantGroup] = "merchantGroup"></app-mini-etl-lista-transazioni-per-data>
     </mat-expansion-panel>
 </mat-accordion>
 <br><br>

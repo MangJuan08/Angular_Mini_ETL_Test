@@ -4,10 +4,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import moment from 'moment';
 import { CurrencyI } from '../../model/currency';
+import { ListaTransazioniPerData } from '../lista-transazioni-per-data/lista-transazioni-per-data';
 
 @Component({
   selector: 'app-mini-etl-report-transactions-per-merchant-id',
-  imports: [MatListModule, MatExpansionModule, CommonModule],
+  imports: [MatListModule, MatExpansionModule, CommonModule, ListaTransazioniPerData],
   templateUrl: './report-transactions-per-merchantId.html',
   styleUrl: './report-transactions-per-merchantId.scss',
 })
