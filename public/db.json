@@ -144,5 +144,10 @@
       "id": "iv2FBXOCSmM"
     }
   ],
+
+  "users": [{
+    "username":"john",
+    "password":"john"
+  }],
   "$schema": "./node_modules/json-server/schema.json"
 }

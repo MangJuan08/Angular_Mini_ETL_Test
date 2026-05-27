@@ -9,6 +9,7 @@ import { listaTransazioneI } from '../../model/list-transactions';
 import { GroupedTransactions } from '../../model/grouped-transactions';
 import { CommonModule } from '@angular/common';
 import { ReportTransactionsPerMerchantId } from '../../components/report-transactions-per-merchant-id/report-transactions-per-merchantId';
+import { AuthenticationService } from '../../services/authentication-service';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class ReportPagina {
 
   readonly panelOpenState = signal(false);
   listaTransazioneService = inject(ListaTransazioneService);
+  authenticationService = inject(AuthenticationService)
   listaTransazione: any;
   transactions: listaTransazioneI[] = [];
   groupedArray: GroupedTransactions[] = [];
@@ -29,8 +31,18 @@ export class ReportPagina {
   showReport: Boolean;
   groupedTransactions: any;
   timer: any;
-
+ /* isAuthenticated: any
+  isAuthenticatedSubscription$: any*/
   constructor() {
+   /* this.isAuthenticated = false;
+    this.isAuthenticatedSubscription$ = this.authenticationService.IsAuthenticated.subscribe((data: any) => {
+      if (data) {
+        this.isAuthenticated = data;
+      } else {
+        this.isAuthenticated = false
+      }
+    });*/
+
     this.showReport = false;
     this.listaTransazioneService.getList().subscribe((data: any) => {
       this.listaTransazione = data;

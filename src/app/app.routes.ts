@@ -1,22 +1,35 @@
 import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
-import { TransazionePagina } from './pagine/transazione-pagina/transazione-pagina';
-import { ReportPagina } from './pagine/report-pagina/report-pagina';
+import { authGuard } from './guards/auth-guard';
 
-export const routes: Routes = [   {
-        path: '',
-        redirectTo: 'transazione',
-        pathMatch: 'full',
+
+export const routes: Routes = [{
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+},
+{
+    path: 'transazione',
+    loadComponent() {
+        return import('./pagine/transazione-pagina/transazione-pagina').then(m => m.TransazionePagina);
     },
-    { 
-        path: 'transazione',
-        loadComponent() {
-            return import( './pagine/transazione-pagina/transazione-pagina').then(m => m.TransazionePagina);
-        }, 
-     },
-    {
-        path: 'report',
-        loadComponent() {
-            return import( './pagine/report-pagina/report-pagina').then(m => m.ReportPagina);
-        }, 
-    }];
+       canActivate: [authGuard]
+},
+{
+    path: 'report',
+    loadComponent() {
+        return import('./pagine/report-pagina/report-pagina').then(m => m.ReportPagina);
+    },
+     canActivate: [authGuard]
+},
+{
+    path: 'login',
+    loadComponent() {
+        return import('./pagine/login-pagina/login-pagina').then(m => m.LoginPagina);
+    }
+},
+ {
+    path: 'login',
+    redirectTo: 'login'
+  },
+];
