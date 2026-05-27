@@ -1,16 +1,17 @@
 @for (timeGroup of merchantGroup.eventTimes; track timeGroup.eventTime) {
-        <hr>
-        <h3> <b>{{ transformDate(timeGroup.eventTime) }}</b></h3>
-        <p> TRANSACTION DATE: <b>{{transformDate(timeGroup.eventTime) }}</b></p>
-        <p> TRANSACTION TOTAL: <b>{{ timeGroup.totalAmount }}</b></p>
-        <p> SUM OF TRANSACTIONS PER DATE: <b>{{ timeGroup.totalQuantityTransactions }}</b></p>
-        <ul>
+<hr>
+<h3> <b>{{ transformDate(timeGroup.eventTime) }}</b></h3>
+<p> TRANSACTION DATE: <b>{{transformDate(timeGroup.eventTime) }}</b></p>
+<p> TRANSACTION TOTAL: <b>{{ timeGroup.totalAmount }}</b></p>
+<p> SUM OF TRANSACTIONS PER DATE: <b>{{ timeGroup.totalQuantityTransactions }}</b></p>
 
-      
-        @for (tx of timeGroup.transactions; track tx.extId) {
-        <mat-list>
-           <li> CURRENCY: <b>{{tx.currency}}</b> --- AMOUNT: <b>--- {{tx.amountMinor}}</b> --- CUSTOMER NAME: <b>{{tx.customerName | uppercase}}</b></li>
-        </mat-list>   
-        }  </ul>
 
-        } 
+@for (tx of timeGroup.transactions; track tx.extId) {
+<ul class="list-group list-group-horizontal">
+
+    <li class="list-group-item">CURRENCY: <b>{{tx.currency}} </b></li>
+    <li class="list-group-item">AMOUNT: <b> {{tx.amountMinor}}</b></li>
+    <li class="list-group-item">CUSTOMER NAME: <b>{{tx.customerName | uppercase}}</b> </li>   
+</ul>
+}
+}
