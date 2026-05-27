@@ -4,18 +4,16 @@
 </div>
 }
 @else {
-
 <div class="container report-container">
     <div class="row">
-        <h1>REPORT <button matMiniFab (click)="refreshPage()">
+        <h1>REPORT <mat-icon> bar_chart</mat-icon> <button matMiniFab (click)="refreshPage()">
                 <mat-icon>refresh</mat-icon>
             </button>
         </h1>
-        <br><br><br>    <br>    
-
+        <br><br><br> <br>
         @for (merchantGroup of groupedArray; track merchantGroup.merchantId) {
-
- <app-mini-etl-report-transactions-per-merchant-id [merchantGroup] = "merchantGroup" [groupedArray]= "groupedArray"></app-mini-etl-report-transactions-per-merchant-id>
+        <app-mini-etl-report-transactions-per-merchant-id [merchantGroup]="merchantGroup"
+            [groupedArray]="groupedArray"></app-mini-etl-report-transactions-per-merchant-id>
         }
     </div>
 </div>
