@@ -36,7 +36,7 @@ export class LoginPagina {
       })
 
       if (this.resultLogin.length != 0) {
-        localStorage.setItem('token', 'a');
+        localStorage.setItem('isAuthenticated', 'true');
         this.authenticationService.IsAuthenticated.next(true);
         this.router.navigate(['/transazione'])
       } else {

@@ -1,27 +1,20 @@
-import { ChangeDetectorRef, Component, inject, Input, signal } from '@angular/core';
-import { ListaTransazioneService } from '../../services/lista-transazione-service';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatListModule } from '@angular/material/list';
-import { listaTransazioneI } from '../../model/list-transactions';
-import { GroupedTransactions } from '../../model/grouped-transactions';
-import { CommonModule } from '@angular/common';
-import { AuthenticationService } from '../../services/authentication-service';
-import { Router, RouterModule } from '@angular/router';
+import { ChangeDetectorRef, Component, inject, signal } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ListReportTransazione } from "../../components/list-report-transazione/list-report-transazione";
-
+import { GroupedTransactions } from '../../model/grouped-transactions';
+import { listaTransazioneI } from '../../model/list-transactions';
+import { AuthenticationService } from '../../services/authentication-service';
+import { ListaTransazioneService } from '../../services/lista-transazione-service';
+import { MatIconModule } from '@angular/material/icon';
+import { ReportTransactionsPerMerchantId } from '../report-transactions-per-merchant-id/report-transactions-per-merchantId';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-mini-etl-report-pagina',
-  imports: [MatExpansionModule, MatProgressSpinnerModule, MatIconModule, MatButtonModule, MatListModule, CommonModule, RouterModule, ListReportTransazione],
-  templateUrl: './report-pagina.html',
-  styleUrl: './report-pagina.scss',
+  selector: 'app-mini-etl-list-report-transazione',
+  imports: [MatIconModule, ReportTransactionsPerMerchantId, MatButtonModule],
+  templateUrl: './list-report-transazione.html',
+  styleUrl: './list-report-transazione.scss',
 })
-export class ReportPagina {
-
+export class ListReportTransazione {
 
   readonly panelOpenState = signal(false);
   listaTransazioneService = inject(ListaTransazioneService);
@@ -30,38 +23,35 @@ export class ReportPagina {
   transactions: listaTransazioneI[] = [];
   groupedArray: GroupedTransactions[] = [];
   cdk = inject(ChangeDetectorRef);
-  /*showReport: Boolean;*/
+  showReport: Boolean;
   groupedTransactions: any;
   timer: any;
- isAuthenticated: Boolean;
+  isAuthenticated: Boolean;
   isAuthenticatedSubscription$: Subscription;
-  router = inject(Router);
   constructor() {
-   this.isAuthenticated = false;
+    this.isAuthenticated = false;
     this.isAuthenticatedSubscription$ = this.authenticationService.IsAuthenticated.subscribe((data: any) => {
       if (data) {
         this.isAuthenticated = data;
-         console.log(this.isAuthenticated)
       } else {
         this.isAuthenticated = false
-         this.router.navigate(['/login'])
       }
-      console.log(this.isAuthenticated)
     });
 
-    /*this.showReport = false;
+    this.showReport = false;
     this.listaTransazioneService.getList().subscribe((data: any) => {
       this.listaTransazione = data;
       this.cdk.detectChanges();
-    })*/
+    })
   }
 
   ngOnInit(): void {
-    /*this.timer = setInterval(() => {
+
+    this.timer = setInterval(() => {
       this.regroupTransactionsByMerchantId();
-    }, 2000)*/
+    }, 2000)
   }
-/*
+
   regroupTransactionsByMerchantId() {
     const groupedTransactions = this.listaTransazione.reduce(
       (acc: any, transaction: any) => {
@@ -100,6 +90,10 @@ export class ReportPagina {
   }
 
   refreshPage() {
+    this.listaTransazioneService.getList().subscribe((data: any) => {
+      this.listaTransazione = data;
+      this.cdk.detectChanges();
+    })
     this.showReport = false;
     this.ngOnInit();
   }
@@ -107,6 +101,6 @@ export class ReportPagina {
 
 
   ngOnDestroy() {
-    clearInterval(this.timer)
-  }*/
+    clearInterval(this.timer);
+  }
 }

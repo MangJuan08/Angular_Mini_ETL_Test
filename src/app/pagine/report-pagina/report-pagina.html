@@ -1,24 +1,53 @@
-@if(!showReport) {
-<div class="loading-overlay">
-    <div class="spinner-grow" role="status">
-        <span class="visually-hidden">Loading...</span>
-    </div>
-</div>
-}
-@else {
-<div class="container report-container">
-    <div class="row">
-        <h1>REPORT <mat-icon> bar_chart</mat-icon> <button matMiniFab (click)="refreshPage()">
-                <mat-icon>refresh</mat-icon>
-            </button>
-        </h1>
-        <br><br><br> <br>
-        @for (merchantGroup of groupedArray; track merchantGroup.merchantId) {
-        <app-mini-etl-report-transactions-per-merchant-id [merchantGroup]="merchantGroup"
-            [groupedArray]="groupedArray"></app-mini-etl-report-transactions-per-merchant-id>
-        }
-    </div>
-</div>
 
 
-}
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <!-- Sidebar -->
+        <aside class="col-auto px-0 bg-dark sidebar shadow">
+            <div class="d-flex flex-column p-3 text-white vh-100 position-sticky">
+                <!-- Navigation -->
+                <ul class="nav nav-pills flex-column gap-2" style="margin-top: 50px;">
+                    <li class="nav-item">
+                        <a routerLink="/transazione" class="nav-link d-flex align-items-center">
+                            <mat-icon>view_list</mat-icon>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center" routerLink="/report">
+                            <mat-icon>calendar_today</mat-icon></a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- Main Section -->
+        <main class="col main-content p-4">
+            <!-- Dashboard Content Area -->
+            <section id="dashboard-content">
+                <div class="row g-4">
+                    <!-- Card 1 -->
+                </div>
+                <!-- Custom Dashboard Area -->
+                <div class="card border-0 shadow-sm rounded-4 mt-4">
+                    <div class="card-body p-5 text-center">
+                        <div class="container report-container">
+                            <div class="row">
+                                <!--<h1>REPORT <mat-icon> bar_chart</mat-icon> <button matMiniFab (click)="refreshPage()">
+                                        <mat-icon>refresh</mat-icon>
+                                    </button>
+                                </h1>
+                                <br><br><br> <br>!-->
+                                <!--@for (merchantGroup of groupedArray; track merchantGroup.merchantId) {
+                                <app-mini-etl-report-transactions-per-merchant-id [merchantGroup]="merchantGroup"
+                                    [groupedArray]="groupedArray"></app-mini-etl-report-transactions-per-merchant-id>
+                                }!-->
+                              
+                              @if(isAuthenticated) {  <app-mini-etl-list-report-transazione/>}
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</div> 
