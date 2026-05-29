@@ -4,10 +4,11 @@ import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication-service';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-mini-etl-login-pagina',
-  imports: [ReactiveFormsModule, FormsModule, MatInputModule, MatButtonModule],
+  imports: [ReactiveFormsModule, FormsModule, MatInputModule, MatButtonModule, MatIconModule],
   templateUrl: './login-pagina.html',
   styleUrl: './login-pagina.scss',
 })
@@ -16,7 +17,9 @@ export class LoginPagina {
   router = inject(Router)
   authenticationService = inject(AuthenticationService)
   resultLogin: any;
+  hidePassword: Boolean
   constructor() {
+    this.hidePassword = true;
     this.loginForm = new FormGroup({
 
       username: new FormControl(''),

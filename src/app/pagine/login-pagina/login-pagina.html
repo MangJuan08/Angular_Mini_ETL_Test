@@ -1,19 +1,17 @@
-<div class="container">
-    <br><br><br>
+<div class="container login-class">
     <div class="row">
         <div class="col-md-4">
-
         </div>
         <div class="col-md-4">
             <form [formGroup]="loginForm">
                 <div class="row">
-                    <mat-form-field appearance="outline">
-                        <mat-label>USERNAME</mat-label>
-                        <input matInput placeholder="Placeholder" formControlName="username">
+                    <mat-form-field>
+                        <input matInput placeholder="Username" formControlName="username">
+                         <mat-icon>account_circle</mat-icon>
                     </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>PASSWORD</mat-label>
-                        <input type ="password" matInput placeholder="Placeholder" formControlName="password">
+                    <mat-form-field >
+                        <input type ="password" matInput placeholder="Password" formControlName="password" [type]="hidePassword ? 'password' : 'text'">
+                        <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </mat-form-field>
                 </div>
                 <button type="button" id="submit-btn" matButton="filled" (click)="submitForm(loginForm)">SEND</button>
