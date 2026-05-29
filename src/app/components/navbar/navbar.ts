@@ -25,6 +25,7 @@ export class Navbar {
 
   logout() {
     this.authenticationService.IsAuthenticated.next(false);
+    localStorage.clear();
     this.router.navigate(['/login']);
   }
 
