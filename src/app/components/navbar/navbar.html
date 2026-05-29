@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-primary sticky-top text-white">
   @if(isAuth) {<div class="container">
-    <a class="navbar-brand" routerLink="/transazione" text-white> TRANSAZIONE</a>
+    <a class="navbar-brand" routerLink="/transazione" text-white> <mat-icon>view_list</mat-icon> TRANSAZIONE</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,7 @@
         </li>
       </ul>
       <button mat-menu-item matButton="filled" (click)="logout()">
-        <mat-icon>logout</mat-icon> LOGOUT
+        <mat-icon>logout</mat-icon>
       </button>
     </div>
   </div>}

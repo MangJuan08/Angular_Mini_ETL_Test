@@ -5,11 +5,12 @@
         <div class="col-md-4">
             <form [formGroup]="loginForm">
                 <div class="row">
-                    <mat-form-field>
-                        <input matInput placeholder="Username" formControlName="username">
-                         <mat-icon>account_circle</mat-icon>
+                    <mat-form-field appearance="fill">
+                        <mat-icon matSuffix>account_circle</mat-icon>
+                        <input matInput placeholder="Username" formControlName="username">  
+                                     
                     </mat-form-field>
-                    <mat-form-field >
+                    <mat-form-field appearance="fill">
                         <input type ="password" matInput placeholder="Password" formControlName="password" [type]="hidePassword ? 'password' : 'text'">
                         <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </mat-form-field>

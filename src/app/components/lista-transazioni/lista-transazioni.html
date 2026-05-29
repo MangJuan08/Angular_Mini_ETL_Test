@@ -1,6 +1,8 @@
 @if(!showTable) {
 <div class="loading-overlay">
-    <mat-spinner diameter="60"></mat-spinner>
+    <div class="spinner-grow" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
 </div>
 }
 @else {
@@ -50,7 +52,7 @@
                             }
                         </mat-select>
                     </mat-form-field>
-                     <button matButton="filled" (click)="filterF(filterForm)">APPLY FILTER</button>
+                    <button matButton="filled" (click)="filterF(filterForm)">APPLY FILTER</button>
 
                 </form>
             </mat-expansion-panel>
