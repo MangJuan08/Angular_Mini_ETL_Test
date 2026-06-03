@@ -93,7 +93,7 @@
       "customerId": "2342",
       "amountMinor": "234",
       "currency": "GBP",
-      "stato": "PENDING",
+      "stato": "DELETED",
       "eventTime": "2026-05-25T12:04:56+02:00",
       "customerName": "D",
       "merchantId": "ZZZ",
@@ -115,7 +115,7 @@
       "customerId": "123",
       "amountMinor": "43",
       "currency": "USD",
-      "stato": "COMPLETED",
+      "stato": "DELETED",
       "eventTime": "2026-05-25T12:41:57+02:00",
       "customerName": "ASD",
       "merchantId": "FFF",
@@ -137,17 +137,20 @@
       "customerId": "123",
       "amountMinor": "12.0",
       "currency": "EUR",
-      "stato": "COMPLETED",
+      "stato": "DELETED",
       "eventTime": "2026-05-25T13:13:02+02:00",
       "customerName": "asd",
       "merchantId": "GGG",
       "id": "iv2FBXOCSmM"
     }
   ],
-
-  "users": [{
-    "username":"john",
-    "password":"john"
-  }],
+  "users": [
+    {
+      "username": "john",
+      "password": "john",
+      "id": "CF7L57b-ZdE"
+    }
+  ],
+  "files": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

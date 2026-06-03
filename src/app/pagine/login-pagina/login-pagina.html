@@ -15,7 +15,7 @@
                         <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </mat-form-field>
                 </div>
-                <button type="button" id="submit-btn" matButton="filled" (click)="submitForm(loginForm)">SEND</button>
+                <button type="button" id="submit-btn" matButton="filled" [disabled]="!loginForm.valid" (click)="submitForm(loginForm)">SEND</button>
             </form>
         </div>
         <div class="col-md-4">

@@ -12,11 +12,12 @@ import { AuthenticationService } from '../../services/authentication-service';
 import { Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ListReportTransazione } from "../../components/list-report-transazione/list-report-transazione";
+import { Navbar } from "../../components/navbar/navbar";
 
 
 @Component({
   selector: 'app-mini-etl-report-pagina',
-  imports: [MatExpansionModule, MatProgressSpinnerModule, MatIconModule, MatButtonModule, MatListModule, CommonModule, RouterModule, ListReportTransazione],
+  imports: [MatExpansionModule, MatProgressSpinnerModule, MatIconModule, MatButtonModule, MatListModule, CommonModule, RouterModule, ListReportTransazione, Navbar],
   templateUrl: './report-pagina.html',
   styleUrl: './report-pagina.scss',
 })

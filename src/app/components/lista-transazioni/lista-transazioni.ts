@@ -21,6 +21,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { NotificationService } from '../../services/notification-service';
+import { filter } from 'rxjs';
+import { listaTransazioneI } from '../../model/list-transactions';
 
 export const MY_DATE_FORMATS = {
   parse: {
@@ -79,11 +81,11 @@ export class ListaTransazioni {
       statoTransazione: new FormControl('')
     })
 
-    this.notificationService.transactionAdded$.subscribe((data: any) => {
+    /*this.notificationService.transactionAdded$.subscribe((data: any) => {
       if (data.length > 0) {
         console.log("newtransaction added")
       }
-    })
+    })*/
 
   }
 
@@ -100,8 +102,10 @@ export class ListaTransazioni {
       this.listaTransazione = data;
       this.cdk.detectChanges();
     })
+
         this.showTable = true;
   }
+  
 
   transformDate(valueDate: any) {
     return moment(valueDate).format('L')

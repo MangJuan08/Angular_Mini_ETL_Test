@@ -43,7 +43,11 @@
             </mat-form-field>
         </div>
 
+        <input type="file"  placeholder="input" formControlName="file" (change)="onFileSelected($event)">
+
             <button type="button" id="submit-btn" matButton="filled" [disabled]="!formNewTransaction.valid" (click)="addTransaction(formNewTransaction)">ADD TRANSACTION</button>
+            <br><br>
+            <button type="button" id="submit-btn" matButton="filled"  (click)="resetForm()">RESET</button>
     </form>
 </mat-dialog-content>
 <mat-dialog-actions>

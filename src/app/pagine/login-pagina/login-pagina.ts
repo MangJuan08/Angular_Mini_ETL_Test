@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication-service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { UserI } from '../../model/user';
 
 @Component({
   selector: 'app-mini-etl-login-pagina',
@@ -13,26 +14,36 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './login-pagina.scss',
 })
 export class LoginPagina {
-  loginForm: FormGroup;
   router = inject(Router)
   authenticationService = inject(AuthenticationService)
   resultLogin: any;
   hidePassword: Boolean
+  loginForm: FormGroup;
+  fb = inject(FormBuilder);
   constructor() {
     this.hidePassword = true;
-    this.loginForm = new FormGroup({
-
-      username: new FormControl(''),
-      password: new FormControl('')
-    })
+    this.loginForm = this.fb.group({
+    username: ['', Validators.required],
+    password: ['', Validators.required]
+  })
   }
 
-  submitForm(e: any) {
+  /*get password() {
+    return this.loginForm.get('password');
+  }
+  get username() {
+    return this.loginForm.get('username');
+  }*/
 
-    let res;
+  submitForm(e: any) {
+    const form = {
+      username: this.loginForm.get('username')?.value,
+      password: this.loginForm.get('password')?.value
+    }
+
     this.authenticationService.login().subscribe((data: any) => {
-      this.resultLogin = data.filter((item: any) => {
-        return item.username == e.value.username && item.password == e.value.password
+      this.resultLogin = data.filter((item: UserI) => {
+        return item.username == form.username && item.password == form.password
       })
 
       if (this.resultLogin.length != 0) {

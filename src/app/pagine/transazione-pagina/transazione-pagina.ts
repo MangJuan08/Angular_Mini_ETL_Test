@@ -4,12 +4,13 @@ import { NotificationService } from '../../services/notification-service';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication-service';
+import { Navbar } from "../../components/navbar/navbar";
 
 
 
 @Component({
   selector: 'app-mini-etl-transazione-pagina',
-  imports: [ListaTransazioni, MatIconModule, RouterModule],
+  imports: [ListaTransazioni, MatIconModule, RouterModule, Navbar],
   templateUrl: './transazione-pagina.html',
   styleUrl: './transazione-pagina.scss',
 })

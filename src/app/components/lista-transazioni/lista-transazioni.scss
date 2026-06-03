@@ -39,3 +39,15 @@ mat-form-field {
 mat-header-cell {
   color: white
 }
+
+.completedStatus{
+     background: yellow;
+  }
+
+.pendingStatus {
+  background: #42A948;
+}
+
+.deletedStatus {
+  background: red;
+}

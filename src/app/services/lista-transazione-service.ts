@@ -11,13 +11,15 @@ export class ListaTransazioneService {
 
 
   getList() {
-    return this.http.get<listaTransazioneI>("http://localhost:3000/transactions");
+    return this.http.get<listaTransazioneI>("http://localhost:3001/transactions");
   }
 
   addNewTransaction(newTransactionBody: any) {
-    return this.http.post<listaTransazioneI>("http://localhost:3000/transactions", newTransactionBody);
+    return this.http.post<listaTransazioneI>("http://localhost:3001/transactions", newTransactionBody);
   }
 
-
+  addNewFile(file: any) {
+     return this.http.post("http://localhost:3000/upload", file);
+  }
 
 }

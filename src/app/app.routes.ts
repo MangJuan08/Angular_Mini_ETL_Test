@@ -24,7 +24,8 @@ export const routes: Routes = [{
     path: 'login',
     loadComponent() {
         return import('./pagine/login-pagina/login-pagina').then(m => m.LoginPagina);
-    }
+    },
+     canActivate: [authGuard]
 },
  {
     path: 'login',
