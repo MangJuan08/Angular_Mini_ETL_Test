@@ -69,7 +69,8 @@ export class ListaTransazioni {
   private config: MatDialogConfig = {
     disableClose: true,
     width: '1200px',
-    maxWidth: '100%'
+    maxWidth: '100%',
+    backdropClass: "dialogComponentCss"
   };
   constructor() {
     this.showTable = false;
