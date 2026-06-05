@@ -54,7 +54,7 @@ server.post("/upload", upload.single("file"), (req, res) => {
 server.use(router);
 
 // ---------------- START SERVER ----------------
-const PORT = 3000;
+const PORT = 3002;
 
 server.listen(PORT, () => {
   console.log(`JSON Server running at http://localhost:${PORT}`);

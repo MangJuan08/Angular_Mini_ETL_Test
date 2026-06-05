@@ -10,6 +10,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import {
   MatDialog,
+  MatDialogConfig,
 } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -21,7 +22,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { NotificationService } from '../../services/notification-service';
-import { filter } from 'rxjs';
+import { filter, map } from 'rxjs';
 import { listaTransazioneI } from '../../model/list-transactions';
 
 export const MY_DATE_FORMATS = {
@@ -65,7 +66,11 @@ export class ListaTransazioni {
   timer: any;
   readonly panelOpenState = signal(false);
   readonly dialog = inject(MatDialog);
-
+  private config: MatDialogConfig = {
+    disableClose: true,
+    width: '1200px',
+    maxWidth: '100%'
+  };
   constructor() {
     this.showTable = false;
     this.displayedColumns = ['extId', 'customerId', 'customerName', 'amountMinor', 'currency', 'stato', 'eventTime', 'merchantId'];
@@ -81,11 +86,6 @@ export class ListaTransazioni {
       statoTransazione: new FormControl('')
     })
 
-    /*this.notificationService.transactionAdded$.subscribe((data: any) => {
-      if (data.length > 0) {
-        console.log("newtransaction added")
-      }
-    })*/
 
   }
 
@@ -97,18 +97,27 @@ export class ListaTransazioni {
   }
 
   showTableTransactions() {
-    this.listaTransazioneService.getList().subscribe((data: any) => {
+    this.listaTransazioneService.getList().pipe(map((data: any) => {
+      return this.transformDate(data);
+    })).subscribe((data: any) => {
       this.dataSource = new MatTableDataSource(data);
       this.listaTransazione = data;
+      this.filterForm.reset();
       this.cdk.detectChanges();
-    })
-
-        this.showTable = true;
+    });
+    this.showTable = true;
   }
-  
 
-  transformDate(valueDate: any) {
-    return moment(valueDate).format('L')
+
+
+  transformDate(data: any) {
+    const dataTransform = data.map((item: any) => {
+      return {
+        ...item,
+        eventTime: moment(item.eventTime).format('L')
+      }
+    });
+    return dataTransform;
   }
 
   filterF(e: any) {
@@ -118,11 +127,11 @@ export class ListaTransazioni {
       const itemDate = moment(parameter.eventTime);
       const startDate = moment(e.value.dataDa);
       const endDate = moment(e.value.dataA);
-      return itemDate.isBetween(startDate, endDate, 'day', '[]') && parameter.customerName == e.value.customerName && parameter.stato == e.value.statoTransazione;
+      return itemDate.isBetween(startDate, endDate, 'day', '[]') && parameter.customerName == e.value.customerName && parameter.status == e.value.statoTransazione;
     });
     console.log(this.dataSource.data)
     this.dataSource.data = []
-     console.log(this.dataSource.data)
+    console.log(this.dataSource.data)
     this.dataSource = new MatTableDataSource(this.resultFilterData);
     this.showTable = true;
   }
@@ -131,28 +140,21 @@ export class ListaTransazioni {
   refreshTable() {
     this.showTable = false
     this.timer = setInterval(() => {
-      this.listaTransazioneService.getList().subscribe((data: any) => {
+      /*this.listaTransazioneService.getList().subscribe((data: any) => {
         this.dataSource = new MatTableDataSource(data);
         this.showTable = true;
         this.listaTransazione = data;
         this.filterForm.reset();
         this.cdk.detectChanges();
-      })
+      })*/ this.showTableTransactions();
     }, 2000)
   }
 
 
   openDialog() {
-    let d = this.dialog.open(FormAddNewTransaction, {
-      width: '1000px',
-      height: '450px'
-    });
-
-    this.dialog.afterAllClosed.subscribe((data: any) => {
-      this.notificationService.notifyNewTransactionAdded(data);
-    })
+    const dialogRef = this.dialog.open(FormAddNewTransaction, this.config);
   }
-  
+
   ngOnDestroy() {
     clearInterval(this.timer)
   }

@@ -19,7 +19,7 @@ export class ListaTransazioneService {
   }
 
   addNewFile(file: any) {
-     return this.http.post("http://localhost:3000/upload", file);
+     return this.http.post("http://localhost:3002/upload", file);
   }
 
 }

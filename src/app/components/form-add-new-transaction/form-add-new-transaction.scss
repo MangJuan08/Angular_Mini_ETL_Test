@@ -20,3 +20,19 @@ mat-dialog-content {
   height: 48px;
   font-size: 16px;
 }
+
+.snackbar-success {
+  background-color: #4caf50;
+  color: white;
+  font-weight: 500;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.divider hr {
+  flex: 1;
+}

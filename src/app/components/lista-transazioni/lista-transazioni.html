@@ -59,7 +59,7 @@
         </mat-accordion>
 
         <br>
-        <button id="btn-add" matMiniFab (click)="openDialog()">
+        <button id="btn-add" matMiniFab (click)="$event.preventDefault();openDialog()">
             <mat-icon>control_point</mat-icon>
         </button>
         <button matMiniFab (click)="refreshTable()">
@@ -117,7 +117,7 @@
             <ng-container matColumnDef="eventTime">
                 <mat-header-cell *matHeaderCellDef style="background-color:blue"> {{ 'Data Transazione' | uppercase }}
                 </mat-header-cell>
-                <mat-cell *matCellDef="let element"> {{transformDate(element.eventTime)}} </mat-cell>
+                <mat-cell *matCellDef="let element"> {{element.eventTime}} </mat-cell>
             </ng-container>
 
             <!-- merchantId Column -->

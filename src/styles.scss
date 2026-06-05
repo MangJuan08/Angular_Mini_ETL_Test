@@ -7,18 +7,16 @@
 
 html {
   height: 100%;
-  @include mat.theme(
-    (
-      color: (
-        primary: mat.$azure-palette,
+  @include mat.theme((color: (primary: mat.$azure-palette,
         tertiary: mat.$blue-palette,
       ),
       typography: Roboto,
       density: 0,
-    )
-  );
+    ));
 }
 
+
+/*
 body {
   // Default the application to a light color theme. This can be changed to
   // `dark` to enable the dark color theme, or to `light dark` to defer to the
@@ -35,5 +33,5 @@ body {
   // Reset the user agent margin.
   margin: 0;
   height: 100%;
-}
+}*/
 /* You can add global styles to this file, and also import other style files */

@@ -1,147 +1,48 @@
 {
   "transactions": [
     {
-      "extId": 1001,
-      "customerId": 501,
-      "amountMinor": 2599,
-      "currency": "EUR",
-      "stato": "COMPLETED",
-      "eventTime": "2026-05-21T10:15:30Z",
-      "customerName": "SSS",
-      "merchantId": "XXX",
-      "id": "iOZCG4vgxEc"
-    },
-    {
-      "extId": 1002,
-      "customerId": 501,
-      "amountMinor": 2599,
-      "currency": "EUR",
-      "stato": "COMPLETED",
-      "eventTime": "2026-05-21T10:15:30Z",
-      "customerName": "BAUT",
-      "merchantId": "XXX",
-      "id": "iOZCG4vgxEc"
-    },
-    {
-      "extId": 1003,
-      "customerId": 501,
-      "amountMinor": 2599,
-      "currency": "EUR",
-      "stato": "COMPLETED",
-      "eventTime": "2026-03-21T10:15:30Z",
-      "customerName": "John",
-      "merchantId": "XXX",
-      "id": "iOZCG4vgxEc"
-    },
-    {
-      "extId": 1002,
-      "customerId": 502,
-      "amountMinor": 4999,
-      "currency": "EUR",
-      "stato": "PENDING",
-      "eventTime": "2022-09-21T11:20:45Z",
-      "customerName": "F",
-      "merchantId": "XXX",
-      "id": "npRdmTCOqb8"
-    },
-    {
-      "extId": 644,
+      "extId": 29,
       "customerId": "123",
-      "amountMinor": "12",
-      "currency": "AAA",
-      "stato": "COMPLETED",
-      "eventTime": "2026-05-08T16:20:55+02:00",
-      "customerName": "E",
-      "merchantId": "YYY",
-      "id": "q46OTLk6bXk"
-    },
-    {
-      "extId": 521,
-      "customerId": "123",
-      "amountMinor": "12",
-      "currency": "AAA",
-      "stato": "PENDING",
-      "eventTime": "2026-05-22T16:20:55+02:00",
-      "customerName": "B",
-      "merchantId": "YYY",
-      "id": "PWklLoyg0s8"
-    },
-    {
-      "extId": 890,
-      "customerId": "12",
-      "amountMinor": "3",
-      "currency": "EUR",
-      "stato": "COMPLETED",
-      "eventTime": "2026-05-23T16:27:18+02:00",
-      "customerName": "A",
-      "merchantId": "ZZZ",
-      "id": "NdvlVFYZ2-w"
-    },
-    {
-      "extId": 890,
-      "customerId": "12",
-      "amountMinor": "3",
-      "currency": "EUR",
-      "stato": "COMPLETED",
-      "eventTime": "2026-05-24T16:27:18+02:00",
-      "customerName": "C",
-      "merchantId": "ZZZ",
-      "id": "NdvlVFYZ2-w"
-    },
-    {
-      "extId": 123,
-      "customerId": "2342",
-      "amountMinor": "234",
-      "currency": "GBP",
-      "stato": "DELETED",
-      "eventTime": "2026-05-25T12:04:56+02:00",
-      "customerName": "D",
-      "merchantId": "ZZZ",
-      "id": "gJfIqQw9Wwg"
-    },
-    {
-      "extId": 32,
-      "customerId": "123",
-      "amountMinor": "132",
-      "currency": "EUR",
-      "stato": "PENDING",
-      "eventTime": "2026-05-22T12:25:29+02:00",
-      "customerName": "as",
-      "merchantId": "FFF",
-      "id": "aKnD8ExMLKM"
-    },
-    {
-      "extId": "61.37",
-      "customerId": "123",
-      "amountMinor": "43",
+      "amountMinor": "1312",
       "currency": "USD",
-      "stato": "DELETED",
-      "eventTime": "2026-05-25T12:41:57+02:00",
-      "customerName": "ASD",
-      "merchantId": "FFF",
-      "id": "nfPkvtzSLmM"
-    },
-    {
-      "extId": "20.24",
-      "customerId": "12",
-      "amountMinor": "45.09",
-      "currency": "EUR",
       "stato": "COMPLETED",
-      "eventTime": "2026-05-25T12:44:12+02:00",
-      "customerName": "as",
-      "merchantId": "GGG",
-      "id": "cxgLMMFgxvk"
+      "eventTime": "2026-06-05T16:46:04+02:00",
+      "customerName": "SD",
+      "merchantId": "SD",
+      "id": 1
     },
     {
-      "extId": 173,
-      "customerId": "123",
-      "amountMinor": "12.0",
-      "currency": "EUR",
-      "stato": "DELETED",
-      "eventTime": "2026-05-25T13:13:02+02:00",
-      "customerName": "asd",
-      "merchantId": "GGG",
-      "id": "iv2FBXOCSmM"
+      "extId": 130,
+      "customerId": "1312",
+      "amountMinor": "412",
+      "currency": "GBP",
+      "stato": "COMPLETED",
+      "eventTime": "2026-06-05T17:06:23+02:00",
+      "customerName": "ASDW",
+      "merchantId": "YYY",
+      "id": 2
+    },
+    {
+      "extId": 15,
+      "customerId": "213123",
+      "amountMinor": "121231",
+      "currency": "USD",
+      "stato": "COMPLETED",
+      "eventTime": "2026-06-05T17:25:44+02:00",
+      "customerName": "DW",
+      "merchantId": "XXX",
+      "id": 3
+    },
+    {
+      "extId": 42,
+      "customerId": "5555",
+      "amountMinor": "1231",
+      "currency": "GBP",
+      "stato": "COMPLETED",
+      "eventTime": "2026-06-05T17:25:44+02:00",
+      "customerName": "WD",
+      "merchantId": "ZZZ",
+      "id": 4
     }
   ],
   "users": [
@@ -149,6 +50,20 @@
       "username": "john",
       "password": "john",
       "id": "CF7L57b-ZdE"
+    }
+  ],
+  "merchants": [
+    {
+      "id": 0,
+      "merchantId": "XXX"
+    },
+    {
+      "id": 1,
+      "merchantId": "YYY"
+    },
+    {
+      "id": 2,
+      "merchantId": "ZZZ"
     }
   ],
   "files": [],

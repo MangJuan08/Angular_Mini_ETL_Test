@@ -1,55 +1,87 @@
 <h2 mat-dialog-title>ADD NEW TRANSACTION</h2>
 <mat-dialog-content>
     <br><br>
-    <form [formGroup]="formNewTransaction">
-        <div class="row">
-            <mat-form-field appearance="outline">
-                <mat-label>CUSTOMER ID</mat-label>
-                <input matInput placeholder="Placeholder" formControlName="customerId">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>AMOUNT MINOR</mat-label>
-                <input matInput placeholder="Placeholder" formControlName="amountMinor">
-            </mat-form-field>
-        </div>
+    <form [formGroup]="formNewTransaction" (ngSubmit)="addTransaction()">
+
+        <input type="file" placeholder="input" (change)="onFileSelected($event)">
+        @if(uploadProgress > 0) {
+        <section class="example-section">
+            <label class="example-margin">Progress:</label>
+            <mat-slider class="example-margin">
+                <input type="range" [value]="uploadProgress" matSliderThumb>
+            </mat-slider>
+        </section>
+        }
 
         <div class="row">
-             <mat-form-field appearance="outline">
-                <mat-label>CURRENCY</mat-label>
-                <mat-select matInput formControlName="currency">
-                    @for (c of currencyList; track c) {
-                    <mat-option [value]="c.value">{{c.value}}</mat-option>
-                    }
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>CUSTOMER NAME</mat-label>
-                <input matInput placeholder="Placeholder" formControlName="customerName">
-            </mat-form-field>
+            <div formArrayName="transactionsArray">
+                @for (newTransaction of transactionsArray.controls; track $index; let i = $index) {
+                <div class="divider">
+                    <hr />
+                    <p>{{i+1}}</p>
+                    <hr />
+                </div>
+
+                <div [formGroupName]="i">
+                    <div class="row">
+                        <mat-form-field appearance="outline">
+                            <mat-label>CUSTOMER ID</mat-label>
+                            <input matInput placeholder="Placeholder" formControlName="customerId">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>AMOUNT MINOR</mat-label>
+                            <input matInput placeholder="Placeholder" formControlName="amountMinor">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>CURRENCY</mat-label>
+                            <mat-select matInput formControlName="currency">
+                                @for (c of currencyList; track c) {
+                                <mat-option [value]="c.value"><b>{{c.value}} - {{c.symbol}}</b></mat-option>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                        <mat-form-field appearance="outline">
+                            <mat-label>CUSTOMER NAME</mat-label>
+                            <input matInput placeholder="Placeholder" formControlName="customerName">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>MERCHANT ID</mat-label>
+                            <mat-select matInput formControlName="merchantId">
+                                @for (d of listMerchants; track d) {
+                                <mat-option [value]="d.merchantId">{{d.merchantId}}</mat-option>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>STATO TRANSAZIONE</mat-label>
+                            <mat-select matInput formControlName="statoTransazione">
+                                @for (s of statusTransazione; track s) {
+                                <mat-option [value]="s.value">{{s.viewValue}}</mat-option>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                }
+            </div>
         </div>
-
-        <div class="row">
-            <mat-form-field appearance="outline">
-                <mat-label>MERCHANT ID</mat-label>
-                <input matInput placeholder="Placeholder" formControlName="merchantId">
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-                <mat-label>STATO TRANSAZIONE</mat-label>
-                <mat-select matInput formControlName="statoTransazione">
-                    @for (s of statusTransazione; track s) {
-                    <mat-option [value]="s.value">{{s.viewValue}}</mat-option>
-                    }
-                </mat-select>
-            </mat-form-field>
-        </div>
-
-        <input type="file"  placeholder="input" formControlName="file" (change)="onFileSelected($event)">
-
-            <button type="button" id="submit-btn" matButton="filled" [disabled]="!formNewTransaction.valid" (click)="addTransaction(formNewTransaction)">ADD TRANSACTION</button>
-            <br><br>
-            <button type="button" id="submit-btn" matButton="filled"  (click)="resetForm()">RESET</button>
+        <button type="submit" id="submit-btn" matButton="filled" [disabled]="!formNewTransaction.valid">ADD
+            TRANSACTION</button>
     </form>
+
+
+    <br><br>
+    <button type="button" id="submit-btn" matButton="filled" (click)="resetForm()">RESET</button>
+
+
+    <button matMiniFab (click)="addNewTransactionItem()">
+        <mat-icon>add</mat-icon>
+    </button>
+
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button matButton="filled" mat-dialog-close>Close</button>
+    <button matButton mat-dialog-close cdkFocusInitial>x</button>
 </mat-dialog-actions>
