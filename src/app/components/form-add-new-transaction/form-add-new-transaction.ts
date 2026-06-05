@@ -208,8 +208,8 @@ export class FormAddNewTransaction {
     let max = 300;
 
     const transactions = this.formNewTransaction.get('transactionsArray');
-    if (this.formNewTransaction.get('transactionsArray')?.value.length > 0) {
-      this.formNewTransaction.get('transactionsArray')?.value.forEach((item: any) => {
+    if (transactions?.value.length > 0) {
+      transactions?.value.forEach((item: any) => {
         console.log(item)
         let f = {
          /* id: Math.floor(Math.random() * (max - min + 1)) + min,*/

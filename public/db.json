@@ -43,6 +43,39 @@
       "customerName": "WD",
       "merchantId": "ZZZ",
       "id": 4
+    },
+    {
+      "extId": 238,
+      "customerId": "456",
+      "amountMinor": "678",
+      "currency": "USD",
+      "stato": "COMPLETED",
+      "eventTime": "2026-06-05T17:31:37+02:00",
+      "customerName": "AW",
+      "merchantId": "YYY",
+      "id": 5
+    },
+    {
+      "extId": 294,
+      "customerId": "412",
+      "amountMinor": "214",
+      "currency": "EUR",
+      "stato": "PENDING",
+      "eventTime": "2026-06-05T17:32:10+02:00",
+      "customerName": "WW",
+      "merchantId": "ZZZ",
+      "id": 6
+    },
+    {
+      "extId": 166,
+      "customerId": "214",
+      "amountMinor": "412",
+      "currency": "EUR",
+      "stato": "PENDING",
+      "eventTime": "2026-06-05T17:32:10+02:00",
+      "customerName": "W",
+      "merchantId": "YYY",
+      "id": 7
     }
   ],
   "users": [
