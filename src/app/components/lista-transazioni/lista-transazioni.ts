@@ -98,9 +98,9 @@ export class ListaTransazioni {
   }
 
   showTableTransactions() {
-    this.listaTransazioneService.getList().pipe(map((data: any) => {
-      return this.transformDate(data);
-    })).subscribe((data: any) => {
+    this.listaTransazioneService.getList().pipe(map((data: any) =>
+      this.transformDate(data)
+    )).subscribe((data: any) => {
       this.dataSource = new MatTableDataSource(data);
       this.listaTransazione = data;
       this.filterForm.reset();
